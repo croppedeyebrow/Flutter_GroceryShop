@@ -1,4 +1,7 @@
+import "dart:math";
+
 import "package:flutter/material.dart";
+import "package:flutter_groceryshop/screen/home_screen.dart";
 import "package:flutter_groceryshop/utils/colors.dart";
 
 class FirstScreen extends StatelessWidget {
@@ -18,16 +21,28 @@ class FirstScreen extends StatelessWidget {
                   color: Colors.white,
                   width: 2.2,
                 ),
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(60),
               ),
-              child: Image.asset(
-                "images/liquerlogo.png",
-                height: 300,
-                width: 300,
-                color: Color.fromARGB(255, 146, 26, 170),
+              child: Transform.rotate(
+                angle: pi / 4,
+                child: Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.white, width: 2.2),
+                    borderRadius: BorderRadius.circular(60),
+                  ),
+                  child: Transform.rotate(
+                    angle: -pi / 4,
+                    child: Image.asset(
+                      "images/liquerlogo.png",
+                      height: 360,
+                      width: 360,
+                      color: Color.fromARGB(255, 146, 26, 170),
+                    ),
+                  ),
+                ),
               ),
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 80),
             Text(
               "술숨",
               style: TextStyle(
@@ -75,6 +90,38 @@ class FirstScreen extends StatelessWidget {
                     ]),
               ),
             ),
+            SizedBox(height: 30),
+            Container(
+                width: double.maxFinite,
+                height: 50,
+                margin: EdgeInsets.all(10),
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => HomeScreen(),
+                        ));
+                  },
+                  child: Text(
+                    "시작하기",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromARGB(
+                        255,
+                        146,
+                        26,
+                        170,
+                      ),
+                    ),
+                  ),
+                )),
           ],
         ),
       ),
