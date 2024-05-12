@@ -3,6 +3,7 @@ import "dart:math";
 import "package:flutter/material.dart";
 import "package:flutter_groceryshop/screen/home_screen.dart";
 import "package:flutter_groceryshop/utils/colors.dart";
+import "package:flutter_groceryshop/widget/navbar_roots.dart";
 
 class FirstScreen extends StatelessWidget {
   const FirstScreen({super.key});
@@ -105,7 +106,7 @@ class FirstScreen extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => HomeScreen(),
+                          builder: (context) => NavBarRoots(),
                         ));
                   },
                   child: Text(
