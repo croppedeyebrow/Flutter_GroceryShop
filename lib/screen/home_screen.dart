@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import "package:flutter_groceryshop/widget/CategoriesWidget.dart";
 import "package:flutter_groceryshop/widget/HomeAppBar.dart";
+import "package:flutter_groceryshop/widget/ItemsWidget.dart";
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -12,7 +13,6 @@ class HomeScreen extends StatelessWidget {
         children: [
           HomeAppBar(),
           Container(
-            height: 500,
             padding: EdgeInsets.only(top: 16),
             decoration: BoxDecoration(
                 color: Color(0xffedecf2),
@@ -63,11 +63,24 @@ class HomeScreen extends StatelessWidget {
                 ),
 
                 //카테고리
-                  CategoriesWidget(),
+                CategoriesWidget(),
 
+                //아이템
+                Container(
+                  alignment: Alignment.centerLeft,
+                  margin: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+                  child: Text(
+                    "가장 인기있는 상품",
+                    style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xff4c53a5)),
+                  ),
+                ),
+                ItemsWidget(),
               ],
             ),
-          )
+          ),
         ],
       ),
     );
