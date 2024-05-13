@@ -33,10 +33,13 @@ class HomeAppBar extends StatelessWidget {
               "3",
               style: TextStyle(color: Colors.white),
             ),
-            child: Icon(
-              Icons.shopping_basket,
-              size: 32,
-              color: Color(0xff4c53a5),
+            child: InkWell(
+              onTap: () {},
+              child: Icon(
+                Icons.shopping_basket,
+                size: 32,
+                color: Color(0xff4c53a5),
+              ),
             ),
           ),
         ],
