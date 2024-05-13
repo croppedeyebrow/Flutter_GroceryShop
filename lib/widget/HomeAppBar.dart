@@ -2,8 +2,6 @@ import "package:flutter/material.dart";
 import 'package:badges/badges.dart' as badges;
 
 class HomeAppBar extends StatelessWidget {
-  const HomeAppBar({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -30,7 +28,7 @@ class HomeAppBar extends StatelessWidget {
           Spacer(),
           badges.Badge(
             badgeContent: Text(
-              "3",
+              "4",
               style: TextStyle(color: Colors.white),
             ),
             child: InkWell(

@@ -1,4 +1,6 @@
+import "package:curved_navigation_bar/curved_navigation_bar.dart";
 import "package:flutter/material.dart";
+import "package:flutter/widgets.dart";
 import "package:flutter_groceryshop/screen/chat_screen.dart";
 import "package:flutter_groceryshop/screen/home_screen.dart";
 
@@ -25,33 +27,32 @@ class _NavBarRootsState extends State<NavBarRoots> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: _screens[_selectedIndex],
-      bottomNavigationBar: Container(
-        height: 80,
-        child: BottomNavigationBar(
-          backgroundColor: Colors.white,
-          type: BottomNavigationBarType.fixed,
-          selectedItemColor: Color(0xff7165D6),
-          unselectedItemColor: Colors.black38,
-          selectedLabelStyle: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 16,
-          ),
-          currentIndex: _selectedIndex,
-          onTap: (index) {
-            setState(() {
-              _selectedIndex = index;
-            });
-          },
-          items: [
-            BottomNavigationBarItem(icon: Icon(Icons.home_filled), label: "홈"),
-            BottomNavigationBarItem(icon: Icon(Icons.chat_bubble), label: "채팅"),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.shopping_basket), label: "장바구니"),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.border_all_rounded), label: "게시판"),
-            BottomNavigationBarItem(icon: Icon(Icons.settings), label: "설정"),
-          ],
-        ),
+      bottomNavigationBar: CurvedNavigationBar(
+        height: 70,
+
+        items: <Widget>[
+          Icon(Icons.home_filled,
+              size: 30,
+              color: _selectedIndex == 0 ? Colors.amber : Colors.grey),
+          Icon(Icons.chat_bubble,
+              size: 30,
+              color: _selectedIndex == 1 ? Colors.amber : Colors.grey),
+          Icon(Icons.shopping_basket,
+              size: 30,
+              color: _selectedIndex == 2 ? Colors.amber : Colors.grey),
+          Icon(Icons.border_all_rounded,
+              size: 30,
+              color: _selectedIndex == 3 ? Colors.amber : Colors.grey),
+          Icon(Icons.settings,
+              size: 30,
+              color: _selectedIndex == 4 ? Colors.amber : Colors.grey),
+        ],
+        index: _selectedIndex, // Set the initial selected index
+        onTap: (index) {
+          setState(() {
+            _selectedIndex = index; // Update the selected index
+          });
+        },
       ),
     );
   }

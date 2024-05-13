@@ -4,12 +4,12 @@ class CategoriesWidget extends StatelessWidget {
   CategoriesWidget({super.key});
 
   List<String> categories = [
-    "15도 미만",
-    "15도이상 35도 미만",
-    "35도이상 45도 미만",
-    "45도 이상",
-    "깔끔한 맛",
-    "달달한 맛"
+    "서울,경기,인천권",
+    "강원,세종권",
+    "충북,충남,제주도",
+    "전북,전남,경북,경남",
+    "주종별",
+    "가격별"
   ];
 
   @override

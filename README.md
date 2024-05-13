@@ -7,3 +7,4 @@
 
 <h5>사용한 라이브러리</h5>
    - badges 3.1.2
+   - curved_navigation_bar 1.0.3
