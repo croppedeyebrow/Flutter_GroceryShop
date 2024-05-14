@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import 'package:badges/badges.dart' as badges;
+import 'package:flutter_groceryshop/screen/Cart_Screen.dart';
 
 class HomeAppBar extends StatelessWidget {
   @override
@@ -32,7 +33,13 @@ class HomeAppBar extends StatelessWidget {
               style: TextStyle(color: Colors.white),
             ),
             child: InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => CartScreen(),
+                    ));
+              },
               child: Icon(
                 Icons.shopping_basket,
                 size: 32,
