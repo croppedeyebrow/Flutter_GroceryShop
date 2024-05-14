@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import "package:flutter/widgets.dart";
+import "package:flutter_groceryshop/screen/item_Screen.dart";
 
 class ItemsWidget extends StatefulWidget {
   @override
@@ -87,7 +88,13 @@ class _ItemsWidgetState extends State<ItemsWidget> {
                   ],
                 ),
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ItemScreen(),
+                        ));
+                  },
                   child: Container(
                     margin: EdgeInsets.all(10),
                     child: Image.asset(
