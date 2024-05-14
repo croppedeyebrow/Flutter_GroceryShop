@@ -8,7 +8,22 @@ class ItemsWidget extends StatefulWidget {
 }
 
 class _ItemsWidgetState extends State<ItemsWidget> {
-  bool _isFavorited = false;
+// _isFavorited라는 이름의 불리언 타입 리스트를 선언하고, 초기에는 빈 리스트로 설정합니다.
+  List<bool> _isFavorited = [];
+
+// initState 메서드는 위젯이 생성될 때 한 번만 호출됩니다.
+// 이 메서드에서 _isFavorited 리스트를 초기화합니다.
+
+  @override
+  void initState() {
+    // super.initState()는 상위 클래스의 initState 메서드를 호출합니다.
+    // 이는 Flutter 프레임워크에서 요구하는 규칙입니다.
+    super.initState();
+
+    // _isFavorited 리스트를 생성합니다. 리스트의 길이는 itemlist의 길이와 같습니다.
+    // 각 항목은 false로 초기화됩니다. 즉, 처음에는 모든 아이템이 "즐겨찾기"되지 않은 상태입니다.
+    _isFavorited = List.generate(itemlist.length, (index) => false);
+  }
 
   List<String> itemlist = [
     "6.png",
@@ -21,6 +36,19 @@ class _ItemsWidgetState extends State<ItemsWidget> {
     "13.png",
     "14.png",
     "15.png",
+  ];
+
+  List<String> namelist = [
+    "댄싱사이더 댄싱파파 6도 330ml ",
+    "경복궁소주 40도 350ml",
+    "더한 명랑스컬 17도 375ml",
+    "술샘 미르 54도 375ml",
+    "술샘 퍼플진 오미자 과실 진 36.5도 500ml",
+    "술샘 꿀샘16 벌꿀주 16도 375ml",
+    "술샘 붉은원숭이 막걸리 10.8도 375ml",
+    "달홀주조 달홀진주 40도 375ml",
+    "금이산농원 복숭아 와인 12도 750ml",
+    "맑은내일 미니어처 선물세트 190ml 5본"
   ];
 
   List<double> itemoriginalprice = [
@@ -76,12 +104,14 @@ class _ItemsWidgetState extends State<ItemsWidget> {
                     ),
                     IconButton(
                       icon: Icon(
-                        _isFavorited ? Icons.favorite : Icons.favorite_border,
+                        _isFavorited[i]
+                            ? Icons.favorite
+                            : Icons.favorite_border,
                         color: Colors.redAccent,
                       ),
                       onPressed: () {
                         setState(() {
-                          _isFavorited = !_isFavorited;
+                          _isFavorited[i] = !_isFavorited[i];
                         });
                       },
                     ),
@@ -92,7 +122,11 @@ class _ItemsWidgetState extends State<ItemsWidget> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => ItemScreen(),
+                          builder: (context) => ItemScreen(
+                            itemimg: itemlist[i],
+                            itemname: namelist[i],
+                            //   itemprice : getDiscountedPrice(i).toInt(
+                          ),
                         ));
                   },
                   child: Container(
@@ -108,7 +142,7 @@ class _ItemsWidgetState extends State<ItemsWidget> {
                   padding: EdgeInsets.only(bottom: 10),
                   alignment: Alignment.center,
                   child: Text(
-                    "댄싱사이더 댄싱파파 6도 330ml 사과 사이더",
+                    "${namelist[i]}",
                     style: TextStyle(
                         fontSize: 13,
                         fontWeight: FontWeight.bold,

@@ -1,7 +1,9 @@
 import "package:flutter/material.dart";
 
 class ItemAppBar extends StatelessWidget {
-  const ItemAppBar({super.key});
+  final String itemname;
+
+  ItemAppBar({required this.itemname});
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +25,9 @@ class ItemAppBar extends StatelessWidget {
           Padding(
             padding: EdgeInsets.only(left: 20),
             child: Text(
-              "Product",
+              itemname,
               style: TextStyle(
-                  fontSize: 24,
+                  fontSize: 14,
                   fontWeight: FontWeight.bold,
                   color: Color(0xff4c53a5)),
             ),

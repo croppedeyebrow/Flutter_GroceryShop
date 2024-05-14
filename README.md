@@ -8,3 +8,5 @@
 <h5>사용한 라이브러리</h5>
    - badges 3.1.2
    - curved_navigation_bar 1.0.3
+   - clippy_flutter 2.0.0-nullsafety.1
+   - flutter_rating_bar 4.0.1
