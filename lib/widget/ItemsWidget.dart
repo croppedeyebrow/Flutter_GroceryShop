@@ -39,16 +39,42 @@ class _ItemsWidgetState extends State<ItemsWidget> {
   ];
 
   List<String> namelist = [
-    "댄싱사이더 댄싱파파 6도 330ml ",
-    "경복궁소주 40도 350ml",
-    "더한 명랑스컬 17도 375ml",
-    "술샘 미르 54도 375ml",
-    "술샘 퍼플진 오미자 과실 진 36.5도 500ml",
-    "술샘 꿀샘16 벌꿀주 16도 375ml",
-    "술샘 붉은원숭이 막걸리 10.8도 375ml",
-    "달홀주조 달홀진주 40도 375ml",
-    "금이산농원 복숭아 와인 12도 750ml",
-    "맑은내일 미니어처 선물세트 190ml 5본"
+    "댄싱사이더 댄싱파파",
+    "경복궁소주",
+    "더한 명랑스컬",
+    "술샘 미르",
+    "술샘 퍼플진 오미자 과실 진",
+    "술샘 꿀샘16 벌꿀주",
+    "술샘 붉은원숭이 막걸리",
+    "달홀주조 달홀진주",
+    "금이산농원 복숭아 와인",
+    "맑은내일 미니어처 선물세트5본"
+  ];
+
+  List<String> sizelist = [
+    "330ml",
+    "350ml",
+    "375ml",
+    "375ml",
+    "500ml",
+    "375ml",
+    "375ml",
+    "375ml",
+    "750ml",
+    "190ml"
+  ];
+
+  List<String> levellist = [
+    "6도",
+    "40도",
+    "17도",
+    "54도",
+    "36.5도",
+    "16도",
+    "10.8도",
+    "40도",
+    "12도",
+    "7~32도"
   ];
 
   List<double> itemoriginalprice = [
@@ -122,12 +148,13 @@ class _ItemsWidgetState extends State<ItemsWidget> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => ItemScreen(
-                            itemimg: itemlist[i],
-                            itemname: namelist[i],
-                            //   itemprice : getDiscountedPrice(i).toInt(
-                          ),
-                        ));
+                            builder: (context) => ItemScreen(
+                                  itemimg: itemlist[i],
+                                  itemname: namelist[i],
+                                  itemsize: sizelist[i],
+                                  itemlevel: levellist[i],
+                                  itemprice: getDiscountedPrice(i).toInt(),
+                                )));
                   },
                   child: Container(
                     margin: EdgeInsets.all(10),
@@ -142,7 +169,7 @@ class _ItemsWidgetState extends State<ItemsWidget> {
                   padding: EdgeInsets.only(bottom: 10),
                   alignment: Alignment.center,
                   child: Text(
-                    "${namelist[i]}",
+                    "${namelist[i]} ${levellist[i]} ${sizelist[i]}",
                     style: TextStyle(
                         fontSize: 13,
                         fontWeight: FontWeight.bold,
