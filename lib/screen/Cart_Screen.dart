@@ -13,7 +13,6 @@ class CartScreen extends StatelessWidget {
           children: [
             CartAppBar(),
             Container(
-              height: 700,
               padding: EdgeInsets.only(top: 14),
               decoration: BoxDecoration(
                   color: Color(0xffedecf2),

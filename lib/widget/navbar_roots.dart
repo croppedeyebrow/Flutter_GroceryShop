@@ -2,12 +2,14 @@ import "package:curved_navigation_bar/curved_navigation_bar.dart";
 import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 import "package:flutter/widgets.dart";
+import "package:flutter_groceryshop/screen/Board_Screen.dart";
+import "package:flutter_groceryshop/widget/BoardListScreen.dart";
 import "package:flutter_groceryshop/screen/Like_Screen.dart";
 
 import "package:flutter_groceryshop/screen/home_screen.dart";
 import "package:flutter_groceryshop/screen/item_Screen.dart";
 
-import "../screen/ChatList_Screen.dart";
+import "ChatList_Screen.dart";
 
 class NavBarRoots extends StatefulWidget {
   const NavBarRoots({Key? key}) : super(key: key);
@@ -23,7 +25,7 @@ class _NavBarRootsState extends State<NavBarRoots> {
     HomeScreen(),
     ChatListScreen(),
     LikeScreen(),
-    Container(),
+    BoardScreen(),
     Container(),
   ];
 

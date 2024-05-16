@@ -1,19 +1,21 @@
 import "package:flutter/material.dart";
 
-class CartItemList extends StatefulWidget {
-  CartItemList({super.key});
+class LikeItemList extends StatefulWidget {
+  LikeItemList({super.key});
 
   @override
-  State<CartItemList> createState() => _CartItemListState();
+  State<LikeItemList> createState() => _LikeItemListState();
 }
 
-class _CartItemListState extends State<CartItemList> {
+class _LikeItemListState extends State<LikeItemList> {
   List<String> itemimg = [
     "3.png",
     "7.png",
     "11.png",
     "12.png",
     "15.png",
+    "1.png",
+    "9.png",
   ];
 
   List<String> itemname = [
@@ -22,6 +24,8 @@ class _CartItemListState extends State<CartItemList> {
     "술샘 꿀샘16 벌꿀주 375ml 16도",
     "술샘 붉은원숭이 막걸리 10.8도 375ml",
     "맑은내일 미니어처 선물세트 190ml 5본",
+    "댄싱사이더 댄싱파파 6도 330ml 사과 사이더",
+    "술샘 미르 54도 345ml"
   ];
 
   List<String> itemprice = [
@@ -30,10 +34,11 @@ class _CartItemListState extends State<CartItemList> {
     "11,400",
     "8,550",
     "24,300",
+    "5,600",
+    "33,250"
   ];
 
   List<bool> groupValue = List<bool>.filled(7, false);
-
   List<int> counter = List<int>.filled(7, 1);
 
   @override
@@ -56,7 +61,7 @@ class _CartItemListState extends State<CartItemList> {
                   fontWeight: FontWeight.bold,
                 ),
               )),
-          for (int i = 0; i < 5; i++)
+          for (int i = 0; i < 7; i++)
             Container(
                 margin: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
                 padding: EdgeInsets.all(10),
