@@ -49,7 +49,7 @@ class _NavBarRootsState extends State<NavBarRoots> {
           Icon(Icons.border_all_rounded,
               size: 30,
               color: _selectedIndex == 3 ? Colors.amber : Colors.white),
-          Icon(Icons.settings,
+          Icon(Icons.person,
               size: 30,
               color: _selectedIndex == 4 ? Colors.amber : Colors.white),
         ],

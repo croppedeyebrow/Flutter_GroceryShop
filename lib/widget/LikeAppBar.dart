@@ -22,13 +22,17 @@ class LikeAppBar extends StatelessWidget {
           Padding(
             padding: EdgeInsets.only(left: 20),
             child: Text(
-              "장바구니",
+              "찜 목록",
               style: TextStyle(
                   fontSize: 26,
                   fontWeight: FontWeight.bold,
                   color: Color(0xff4c53a5)),
             ),
           ),
+          SizedBox(
+            width: 4,
+          ),
+          Icon(Icons.thumb_up, color: Color(0xff4c53a5), size: 30),
           Spacer(),
           Icon(
             Icons.more_vert,

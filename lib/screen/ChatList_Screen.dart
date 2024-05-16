@@ -32,21 +32,39 @@ class ChatListScreen extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: 20),
+          SizedBox(height: 40),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 22),
             child: Row(
               children: [
-                Text("제조명인 상담실",
-                    style:
-                        TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+                InkWell(
+                  onTap: () {
+                    // homesrenn으로 이동
+                    Navigator.pop(context);
+                  },
+                  child: Icon(
+                    Icons.arrow_back,
+                    size: 30,
+                    color: Color(0xff4c53a5),
+                  ),
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                Text(
+                  "제조명인 상담실",
+                  style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xff4c53a5)),
+                ),
                 SizedBox(
                   width: 2,
                 ),
                 Icon(Icons.chat_outlined, color: Color(0xff4c53a5), size: 30),
                 Spacer(),
                 Icon(Icons.more_vert_outlined,
-                    color: Color(0xff4c53a5), size: 30)
+                    color: Color(0xff4c53a5), size: 30),
               ],
             ),
           ),
