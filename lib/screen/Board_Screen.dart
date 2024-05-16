@@ -8,43 +8,22 @@ class BoardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView(
+      body: Column(
         children: [
-          BoardAppBar(),
-          Container(
-            padding: EdgeInsets.only(top: 14),
-            decoration: BoxDecoration(
-                color: Color(0xffedecf2),
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(34),
-                    topRight: Radius.circular(34))),
-            child: Column(
-              children: [
-                BoardList(),
-                Container(
-                  margin: EdgeInsets.symmetric(horizontal: 22, vertical: 14),
-                  padding: EdgeInsets.all(10),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        decoration: BoxDecoration(
-                            color: Color(0xff4c53a5),
-                            borderRadius: BorderRadius.circular(20)),
-                        child: Icon(
-                          Icons.add,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ],
-                  ),
-                )
-              ],
+          // BoardAppBar(),
+          Expanded(
+            child: Container(
+              padding: EdgeInsets.only(top: 14),
+              decoration: BoxDecoration(
+                  color: Color(0xffedecf2),
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(34),
+                      topRight: Radius.circular(34))),
+              child: BoardList(),
             ),
-          )
+          ),
         ],
       ),
-      // bottomNavigationBar: LikeBottomNavBar()
     );
   }
 }

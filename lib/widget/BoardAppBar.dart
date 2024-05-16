@@ -22,7 +22,7 @@ class BoardAppBar extends StatelessWidget {
           Padding(
             padding: EdgeInsets.only(left: 20),
             child: Text(
-              "찜 목록",
+              "술솜 토론방",
               style: TextStyle(
                   fontSize: 26,
                   fontWeight: FontWeight.bold,
@@ -32,7 +32,7 @@ class BoardAppBar extends StatelessWidget {
           SizedBox(
             width: 4,
           ),
-          Icon(Icons.thumb_up, color: Color(0xff4c53a5), size: 30),
+          Icon(Icons.table_bar_rounded, color: Color(0xff4c53a5), size: 30),
           Spacer(),
           Icon(
             Icons.more_vert,
