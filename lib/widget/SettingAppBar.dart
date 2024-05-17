@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "package:flutter/widgets.dart";
 
 class SettingAppBar extends StatelessWidget {
   @override
@@ -13,10 +14,20 @@ class SettingAppBar extends StatelessWidget {
               //뒤로가기
               Navigator.pop(context);
             },
-            child: Icon(
-              Icons.arrow_back,
-              size: 30,
-              color: Color(0xff4c53a5),
+            child: ShaderMask(
+              shaderCallback: (bounds) => LinearGradient(
+                colors: [
+                  Color.fromARGB(255, 167, 28, 192),
+                  Color.fromARGB(255, 255, 231, 209),
+                ],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              ).createShader(bounds),
+              child: Icon(
+                Icons.arrow_back,
+                size: 30,
+                color: Colors.white,
+              ),
             ),
           ),
           Padding(
@@ -32,8 +43,15 @@ class SettingAppBar extends StatelessWidget {
           SizedBox(
             width: 4,
           ),
-          Icon(Icons.perm_contact_calendar_sharp,
-              color: Color(0xff4c53a5), size: 30),
+          ShaderMask(
+            shaderCallback: (bounds) => LinearGradient(colors: [
+              Color.fromARGB(255, 167, 28, 192),
+              Color.fromARGB(255, 255, 231, 209)
+            ], begin: Alignment.topCenter, end: Alignment.bottomCenter)
+                .createShader(bounds),
+            child: Icon(Icons.perm_contact_calendar_sharp,
+                color: Colors.white, size: 30),
+          ),
           Spacer(),
           Icon(
             Icons.colorize_sharp,

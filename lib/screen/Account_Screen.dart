@@ -2,6 +2,7 @@ import "package:clippy_flutter/arc.dart";
 import "package:flutter/material.dart";
 import "package:flutter/widgets.dart";
 import "package:flutter_groceryshop/screen/LogIn_Screen.dart";
+import "package:flutter_groceryshop/utils/colors.dart";
 import "package:flutter_groceryshop/widget/AccountBottomBar.dart";
 import "package:flutter_groceryshop/widget/SettingAppBar.dart";
 
@@ -299,7 +300,7 @@ class _AccountScreenState extends State<AccountScreen> {
                     height: 50,
                     width: 150,
                     decoration: BoxDecoration(
-                        color: Color(0xff4c53a5),
+                        gradient: primaryGradient,
                         borderRadius: BorderRadius.circular(20)),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -324,7 +325,7 @@ class _AccountScreenState extends State<AccountScreen> {
                   height: 50,
                   width: 150,
                   decoration: BoxDecoration(
-                      color: Color(0xff4c53a5),
+                      gradient: primaryGradient,
                       borderRadius: BorderRadius.circular(20)),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
