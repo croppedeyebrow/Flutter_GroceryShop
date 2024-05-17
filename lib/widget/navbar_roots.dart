@@ -3,6 +3,7 @@ import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 import "package:flutter/widgets.dart";
 import "package:flutter_groceryshop/screen/Board_Screen.dart";
+import "package:flutter_groceryshop/screen/Setting_Screen.dart";
 import "package:flutter_groceryshop/widget/BoardListScreen.dart";
 import "package:flutter_groceryshop/screen/Like_Screen.dart";
 
@@ -26,7 +27,7 @@ class _NavBarRootsState extends State<NavBarRoots> {
     ChatListScreen(),
     LikeScreen(),
     BoardScreen(),
-    Container(),
+    SettingScreen(),
   ];
 
   @override
