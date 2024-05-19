@@ -1,12 +1,10 @@
 import "package:flutter/material.dart";
-import "package:flutter/widgets.dart";
-import "package:flutter_groceryshop/screen/Signup_Screen.dart";
 import "package:flutter_groceryshop/utils/My_Button.dart";
 import "package:flutter_groceryshop/utils/My_TextField.dart";
 import "package:flutter_groceryshop/utils/square_tile.dart";
 
-class LogInScreen extends StatelessWidget {
-  LogInScreen({super.key});
+class SignUpScreen extends StatelessWidget {
+  SignUpScreen({super.key});
 
   //text editing controllers
   final usernameController = TextEditingController();
@@ -15,7 +13,7 @@ class LogInScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // [primaryColors
+      // [primaryColors]
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -32,7 +30,7 @@ class LogInScreen extends StatelessWidget {
               // logo
               children: [
                 SizedBox(height: 50),
-                Icon(Icons.lock_outline, size: 100, color: Colors.white),
+                Icon(Icons.assignment_sharp, size: 100, color: Colors.white),
 
                 SizedBox(height: 50),
 
@@ -143,21 +141,12 @@ class LogInScreen extends StatelessWidget {
                       style: TextStyle(fontSize: 12, color: Colors.white),
                     ),
                     SizedBox(width: 4),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => SignUpScreen()),
-                        );
-                      },
-                      child: Text(
-                        "지금 합류하세요!",
-                        style: TextStyle(
-                            fontSize: 12,
-                            color: Colors.amberAccent,
-                            fontWeight: FontWeight.bold),
-                      ),
+                    Text(
+                      "지금 합류하세요!",
+                      style: TextStyle(
+                          fontSize: 12,
+                          color: Colors.amberAccent,
+                          fontWeight: FontWeight.bold),
                     )
                   ],
                 )
