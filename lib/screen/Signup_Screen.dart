@@ -1,159 +1,298 @@
 import "package:flutter/material.dart";
-import "package:flutter_groceryshop/utils/My_Button.dart";
-import "package:flutter_groceryshop/utils/My_TextField.dart";
-import "package:flutter_groceryshop/utils/square_tile.dart";
+import "package:flutter_groceryshop/screen/LogIn_Screen.dart";
+import "package:flutter_groceryshop/utils/Signup_Button.dart";
 
-class SignUpScreen extends StatelessWidget {
-  SignUpScreen({super.key});
+import "package:flutter_groceryshop/utils/Signup_TextFiled.dart";
+import "package:flutter_groceryshop/utils/colors.dart";
 
-  //text editing controllers
+import "package:glassmorphism/glassmorphism.dart";
+import "package:intl/intl.dart";
+
+class SignUpScreen extends StatefulWidget {
+  @override
+  _SignUpScreenState createState() => _SignUpScreenState();
+}
+
+class _SignUpScreenState extends State<SignUpScreen> {
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
+  final passwordcheckController = TextEditingController();
+  final nameController = TextEditingController();
+  final emailController = TextEditingController();
+  DateTime? _selectedDate;
+  int _selectedInkWell = 0;
+
+  Future<void> _selectDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(2015, 8),
+      lastDate: DateTime.now(),
+    );
+
+    if (picked != null && picked != _selectedDate)
+      setState(() {
+        _selectedDate = picked;
+      });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       // [primaryColors]
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomRight,
+              begin: Alignment.bottomLeft,
+              end: Alignment.topRight,
               colors: [
                 Color.fromARGB(255, 255, 231, 209),
                 Color.fromARGB(255, 167, 28, 192),
               ]),
         ),
-        child: SafeArea(
-          child: Center(
-            child: Column(
-              // logo
-              children: [
-                SizedBox(height: 50),
-                Icon(Icons.assignment_sharp, size: 100, color: Colors.white),
+        child: Center(
+          child: Column(
+            // logo
+            children: [
+              SizedBox(height: 32),
 
-                SizedBox(height: 50),
+              SizedBox(height: 16),
 
-                //welcome
+              //welcome
 
-                Text(
-                  "주향이 가득한 곳 [술솜]입니다. \n어서오세요, 반갑습니다",
-                  style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold),
-                  textAlign: TextAlign.center,
+              Text(
+                "술솜의 가족이 되는 시간, \n2분만 집중해주세요",
+                style: TextStyle(
+                    fontSize: 24,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold),
+                textAlign: TextAlign.center,
+              ),
+
+              SizedBox(height: 14),
+
+              GlassmorphicFlexContainer(
+                borderRadius: 20,
+                blur: 15,
+                alignment: Alignment.center,
+                border: 2,
+                linearGradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [
+                    Color(0xFFffffff).withOpacity(0.4),
+                    Color(0xFFFFFFFF).withOpacity(0.25),
+                  ],
+                  stops: [
+                    0.1,
+                    1,
+                  ],
                 ),
-
-                SizedBox(height: 25),
-
-                //username textfield
-                MyTextField(
-                    controller: usernameController,
-                    hintText: "아이디 입력하세요",
-                    obscureText: false),
-
-                SizedBox(height: 25),
-
-                //password textfield
-                MyTextField(
-                    controller: passwordController,
-                    hintText: "비밀번호 입력하세요",
-                    obscureText: true),
-
-                SizedBox(height: 14),
-
-                //forgot password?
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 24),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                borderGradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [
+                    Color(0xFFffffff).withOpacity(0.5),
+                    Color(0xFFFFFFFF).withOpacity(0.3),
+                  ],
+                  stops: [
+                    0.1,
+                    1,
+                  ],
+                ),
+                child: Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
+                  child: Column(
                     children: [
-                      Text(
-                        "비밀번호를 잊으셨나요?",
-                        style: TextStyle(
-                            color: Colors.amberAccent,
-                            fontWeight: FontWeight.bold),
+                      //username textfield
+                      SignupTextFiled(
+                          controller: usernameController,
+                          icon: Icon(Icons.person),
+                          hintText: "아이디 입력하세요",
+                          obscureText: false),
+
+                      SizedBox(height: 4),
+
+                      //password textfield
+                      SignupTextFiled(
+                          controller: passwordController,
+                          icon: Icon(Icons.lock),
+                          hintText: "비밀번호 입력하세요",
+                          obscureText: true),
+
+                      SizedBox(height: 4),
+
+                      //check password
+                      SignupTextFiled(
+                          controller: passwordcheckController,
+                          icon: Icon(Icons.lock),
+                          hintText: "비밀번호 다시 한번 입력하세요",
+                          obscureText: true),
+
+                      SizedBox(height: 4),
+
+                      //check password
+                      SignupTextFiled(
+                          controller: nameController,
+                          icon: Icon(Icons.person),
+                          hintText: "이름을 입력하세요",
+                          obscureText: true),
+
+                      SizedBox(height: 4),
+
+                      SignupTextFiled(
+                          controller: emailController,
+                          icon: Icon(Icons.email_outlined),
+                          hintText: "이메일 입력하세요",
+                          obscureText: true),
+
+                      SizedBox(height: 4),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 24),
+                        child: Row(
+                          children: [
+                            ElevatedButton(
+                              onPressed: () => _selectDate(context),
+                              child: Row(
+                                children: [
+                                  Icon(
+                                    Icons.calendar_today,
+                                    color: Colors.grey[500],
+                                  ),
+                                  SizedBox(width: 8),
+                                  Text(
+                                    "생년월일 선택",
+                                    style: TextStyle(
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w600,
+                                        color: Colors.grey[500]),
+                                  ),
+                                ],
+                              ),
+                              style: ButtonStyle(
+                                  backgroundColor:
+                                      MaterialStateProperty.all(Colors.white),
+                                  shape: MaterialStateProperty.all(
+                                    RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                  )),
+                            ),
+                            SizedBox(width: 14),
+                            if (_selectedDate != null)
+                              Container(
+                                margin: EdgeInsets.only(left: 8),
+                                child: Column(
+                                  children: [
+                                    Text(
+                                        "${DateFormat('yyyy-MM-dd').format(_selectedDate!)}",
+                                        style: TextStyle(
+                                            fontSize: 16, color: Colors.white)),
+                                    Container(
+                                      height: 1,
+                                      width: 100,
+                                      color: Colors.grey[500],
+                                    )
+                                  ],
+                                ),
+                              )
+                          ],
+                        ),
                       ),
+                      SizedBox(height: 4),
+                      Padding(
+                        padding:
+                            EdgeInsets.only(right: 50, left: 30, bottom: 40),
+                        child: Column(
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    InkWell(
+                                      onTap: () {
+                                        setState(() {
+                                          _selectedInkWell = 0;
+                                        });
+                                      },
+                                      child: Container(
+                                        padding: EdgeInsets.all(10),
+                                        decoration: BoxDecoration(
+                                            color: _selectedInkWell == 0
+                                                ? Color(0xff4c53a5)
+                                                : Color.fromARGB(
+                                                    255, 228, 213, 213),
+                                            borderRadius:
+                                                BorderRadius.circular(60),
+                                            boxShadow: [
+                                              BoxShadow(
+                                                  color: Colors.grey
+                                                      .withOpacity(0.5),
+                                                  spreadRadius: 1,
+                                                  blurRadius: 10)
+                                            ]),
+                                        child: Icon(
+                                          Icons.male_rounded,
+                                          size: 20,
+                                          color: _selectedInkWell == 0
+                                              ? Colors.white
+                                              : Color.fromARGB(255, 88, 79, 79),
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(width: 30),
+                                    InkWell(
+                                      onTap: () {
+                                        setState(() {
+                                          _selectedInkWell = 1;
+                                        });
+                                      },
+                                      child: Container(
+                                        padding: EdgeInsets.all(10),
+                                        decoration: BoxDecoration(
+                                            color: _selectedInkWell == 1
+                                                ? Color(0xff4c53a5)
+                                                : Color.fromARGB(
+                                                    255, 228, 213, 213),
+                                            borderRadius:
+                                                BorderRadius.circular(60),
+                                            boxShadow: [
+                                              BoxShadow(
+                                                  color: Colors.grey
+                                                      .withOpacity(0.5),
+                                                  spreadRadius: 1,
+                                                  blurRadius: 10)
+                                            ]),
+                                        child: Icon(
+                                          Icons.female_rounded,
+                                          size: 20,
+                                          color: _selectedInkWell == 1
+                                              ? Colors.white
+                                              : Color.fromARGB(255, 88, 79, 79),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                )
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                      SizedBox(height: 14),
+
+                      //signup button
+                      SignupButton(),
                     ],
                   ),
                 ),
-
-                SizedBox(height: 25),
-
-                //sigin in button
-                MyButton(),
-
-                SizedBox(height: 25),
-
-                //or continue with
-                Text(
-                  "또는",
-                  style: TextStyle(color: Colors.white),
-                  textAlign: TextAlign.center,
-                ),
-
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 24.0),
-                  child: Row(
-                    children: [
-                      Expanded(
-                          child: Divider(
-                        thickness: 0.25,
-                        color: Colors.white,
-                      )),
-                      SizedBox(width: 8),
-                      Text(
-                        "SNS 계정으로 로그인하세요",
-                        style: TextStyle(color: Colors.white),
-                        textAlign: TextAlign.center,
-                      ),
-                      SizedBox(width: 8),
-                      Expanded(
-                          child: Divider(
-                        thickness: 0.25,
-                        color: Colors.white,
-                      )),
-                    ],
-                  ),
-                ),
-
-                SizedBox(height: 25),
-                //google + kakao sign in button
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SquareTile(imagePath: "images/google.png"),
-                    SizedBox(width: 20),
-                    SquareTile(imagePath: "images/kakao.png"),
-                    SizedBox(width: 20),
-                    SquareTile(imagePath: "images/apple.png"),
-                  ],
-                ),
-
-                SizedBox(height: 25),
-
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "아직 술솜의 가족이 아니신가요?",
-                      style: TextStyle(fontSize: 12, color: Colors.white),
-                    ),
-                    SizedBox(width: 4),
-                    Text(
-                      "지금 합류하세요!",
-                      style: TextStyle(
-                          fontSize: 12,
-                          color: Colors.amberAccent,
-                          fontWeight: FontWeight.bold),
-                    )
-                  ],
-                )
-
-                //not a member? sign up
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

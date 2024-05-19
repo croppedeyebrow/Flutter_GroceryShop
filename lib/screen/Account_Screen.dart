@@ -1,7 +1,9 @@
 import "package:clippy_flutter/arc.dart";
+import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 import "package:flutter/widgets.dart";
 import "package:flutter_groceryshop/screen/LogIn_Screen.dart";
+import "package:flutter_groceryshop/screen/Signup_Screen.dart";
 import "package:flutter_groceryshop/utils/colors.dart";
 import "package:flutter_groceryshop/widget/AccountBottomBar.dart";
 import "package:flutter_groceryshop/widget/SettingAppBar.dart";
@@ -320,29 +322,39 @@ class _AccountScreenState extends State<AccountScreen> {
                     ),
                   ),
                 ),
-                Container(
-                  alignment: Alignment.center,
-                  height: 50,
-                  width: 150,
-                  decoration: BoxDecoration(
-                      gradient: primaryGradient,
-                      borderRadius: BorderRadius.circular(20)),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "Sign Up",
-                        style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white),
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Icon(Icons.group_add_rounded,
-                          color: Colors.white, size: 30)
-                    ],
+                GestureDetector(
+                  onTap: () {
+                    print("회원가입");
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => SignUpScreen(),
+                        ));
+                  },
+                  child: Container(
+                    alignment: Alignment.center,
+                    height: 50,
+                    width: 150,
+                    decoration: BoxDecoration(
+                        gradient: primaryGradient,
+                        borderRadius: BorderRadius.circular(20)),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Sign Up",
+                          style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white),
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Icon(Icons.group_add_rounded,
+                            color: Colors.white, size: 30)
+                      ],
+                    ),
                   ),
                 ),
               ],
