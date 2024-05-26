@@ -1,10 +1,10 @@
 # flutter_groceryshop
 
-<h1>플러터 : 식료품점 앱 UI 만들기. </h1>
+<h1>플러터 : 전통주 쇼핑몰 앱 UI 만들기. </h1>
 
 <img src = "https://github.com/croppedeyebrow/Flutter_GroceryShop/assets/142734435/b8523666-56a5-4683-95c5-2d335bcb95f8">
 
-<h4>주제 : 안주 식료품점</h4>
+<h4>주제 : 전통주 쇼핑몰</h4>
 <h4> 제작 기간 : 5/13~~5/20</h4>
 
 <h5>사용한 라이브러리</h5>
